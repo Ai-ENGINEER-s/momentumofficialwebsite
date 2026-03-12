@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --momentum-blue: #003366; /* Bleu institutionnel */
+  --momentum-red: #EF4444;  /* Rouge impact */
+}
+
+.text-momentum-blue { color: var(--momentum-blue); }
+.bg-momentum-blue { background-color: var(--momentum-blue); }
+.text-momentum-red { color: var(--momentum-red); }
+.bg-momentum-red { background-color: var(--momentum-red); }

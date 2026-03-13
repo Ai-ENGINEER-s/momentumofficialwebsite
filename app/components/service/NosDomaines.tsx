@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronLeft, ChevronRight, Cpu, Zap, Shield, Activity } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
@@ -40,6 +40,9 @@ const SECTIONS = [
   }
 ];
 
+// Délai de vague par card (chaque card décalée de 0.4s)
+const WAVE_DELAYS = ["0s", "0.4s", "0.8s", "1.2s"];
+
 const NosDomainesSlider = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -53,22 +56,35 @@ const NosDomainesSlider = () => {
 
   return (
     <section className="py-20 bg-white overflow-hidden">
+      <style>{`
+        @keyframes wave-float {
+          0%   { transform: translateY(0px); }
+          50%  { transform: translateY(-18px); }
+          100% { transform: translateY(0px); }
+        }
+        .wave-card {
+          animation: wave-float 3.5s ease-in-out infinite;
+        }
+        .wave-card:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+
       <div className="max-w-[1400px] mx-auto px-6">
         {/* Header */}
-        <div className="flex justify-between items-end mb-12">
-          <h2 className="text-4xl font-light text-slate-800 leading-tight">
-            Propulser le potentiel de ceux <br />
-            <span className="font-bold">qui font avancer le monde</span>
-          </h2>
-          
-          <div className="flex gap-4 mb-2">
-            <button onClick={() => scroll("left")} className="p-3 border border-slate-200 rounded-full hover:bg-slate-50 transition">
-              <ChevronLeft className="w-5 h-5 text-slate-600" />
-            </button>
-            <button onClick={() => scroll("right")} className="p-3 border border-slate-200 rounded-full hover:bg-slate-50 transition">
-              <ChevronRight className="w-5 h-5 text-slate-600" />
-            </button>
+        <div className="flex items-end mb-16">
+          <div className="flex gap-4 mb-2 flex-1">
+         
           </div>
+
+          <div className="flex-[2] text-center">
+            <h2 className="text-4xl md:text-5xl font-light text-slate-900 leading-tight">
+              Propulser le potentiel de ceux <br />
+              <span className="font-bold">qui font avancer le monde</span>
+            </h2>
+          </div>
+
+          <div className="flex-1 hidden md:block"></div>
         </div>
 
         {/* Slider Container */}
@@ -78,45 +94,52 @@ const NosDomainesSlider = () => {
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {SECTIONS.map((section, idx) => (
-            <Link 
-              href={section.link}
-              key={idx} 
-              className={`flex-none snap-center group relative overflow-hidden rounded-[2.5rem] transition-all duration-700 ease-in-out
-                ${idx % 2 === 0 ? 'w-[300px] h-[450px] mt-10' : 'w-[350px] h-[520px]'}
-              `}
+            <div
+              key={idx}
+              className="wave-card flex-none"
+              style={{
+                animationDelay: WAVE_DELAYS[idx],
+              }}
             >
-              {/* Image de fond avec Zoom au survol */}
-              <Image 
-                src={section.img} 
-                alt={section.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              
-              {/* Overlay sombre progressif */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+              <Link 
+                href={section.link}
+                className={`snap-center group relative overflow-hidden rounded-[2.5rem] transition-all duration-700 ease-in-out block
+                  ${idx % 2 === 0 ? 'w-[300px] h-[450px] mt-10' : 'w-[350px] h-[520px]'}
+                `}
+              >
+                {/* Image de fond avec Zoom au survol */}
+                <Image 
+                  src={section.img} 
+                  alt={section.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                
+                {/* Overlay sombre progressif */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
 
-              {/* Contenu de la carte (Bas) */}
-              <div className="absolute bottom-0 left-0 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <div className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[10px] font-bold text-white uppercase tracking-widest mb-4">
-                  {section.tag}
-                </div>
-                
-                <p className="text-white/70 text-xs mb-2">{section.date}</p>
-                
-                <h3 className="text-2xl font-bold text-white mb-4 leading-tight">
-                  {section.title}
-                </h3>
-                
-                <p className="text-white/0 group-hover:text-white/80 text-sm leading-relaxed transition-all duration-500 h-0 group-hover:h-16 overflow-hidden">
-                  {section.desc}
-                </p>
+                {/* Contenu de la carte (Bas) */}
+                <div className="absolute bottom-0 left-0 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[10px] font-bold text-white uppercase tracking-widest mb-4">
+                    {section.tag}
+                  </div>
+                  
+                  <p className="text-white/70 text-xs mb-2">{section.date}</p>
+                  
+                  <h3 className="text-2xl font-bold text-white mb-4 leading-tight">
+                    {section.title}
+                  </h3>
+                  
+                  <p className="text-white/0 group-hover:text-white/80 text-sm leading-relaxed transition-all duration-500 h-0 group-hover:h-16 overflow-hidden">
+                    {section.desc}
+                  </p>
 
-                <div className="mt-4 flex items-center text-white text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">
-                  VOIR LE DOMAINE <ChevronRight className="ml-2 w-4 h-4" />
+                  <div className="mt-4 flex items-center text-white text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                    VOIR LE DOMAINE <ChevronRight className="ml-2 w-4 h-4" />
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           ))}
         </div>
       </div>

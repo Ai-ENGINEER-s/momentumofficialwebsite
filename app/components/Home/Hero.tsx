@@ -31,7 +31,7 @@ export function HeroSection() {
             {/* Mockup Smartphone */}
             <div className="relative z-20 w-72 h-[580px] mx-auto md:ml-0 drop-shadow-2xl">
               <Image 
-                src="https://images.unsplash.com/photo-1592890288564-76628a30a657?q=80&w=1000&auto=format&fit=crop" 
+                src="/sections-images/1.png" 
                 alt="Momentum App"
                 fill
                 className="object-cover rounded-[3rem] border-[8px] border-momentum-blue"

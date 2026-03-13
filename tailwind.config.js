@@ -10,9 +10,9 @@ module.exports = {
       colors: {
         momentum: {
           blue: "#133D58",
-          red: "#991636",
+          red: "#811625",
           gray: "#5f6368",
-          light: "#f8f9fa",
+          light: "#FFFFFFFF",
         },
       },
     },

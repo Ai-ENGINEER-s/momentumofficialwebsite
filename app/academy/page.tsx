@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ArrowRight, Shield, Zap, GraduationCap } from 'lucide-react';
-
+import Image from 'next/image';
 export default function Home() {
   return (
     <div className="flex flex-col gap-20 pb-20">
@@ -27,6 +27,12 @@ export default function Home() {
           <div className="relative h-[400px] bg-gray-200 rounded-3xl overflow-hidden shadow-2xl">
              <div className="absolute inset-0 bg-gradient-to-br from-momentum-blue/20 to-transparent" />
              {/* Remplacez par une image réelle avec <Image /> */}
+             <Image
+              src="/sections-images/momentum-academy.png"
+              alt="Digital Transformation"
+              fill
+              
+             />
           </div>
         </div>
       </section>

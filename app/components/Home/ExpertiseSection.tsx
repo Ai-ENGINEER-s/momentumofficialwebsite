@@ -64,9 +64,9 @@ export function ExpertiseSection() {
       <div className="max-w-[1200px] mx-auto px-6">
         
         <div className="text-center mb-12">
-          <h2 className="text-[32px] font-medium text-momentum-blue tracking-tight">
-      Domaine d’Expertise
-          </h2>
+<h2 className="text-[32px] md:text-[40px] font-bold text-momentum-blue tracking-tight leading-tight">
+  Nos Domaines <span className="text-momentum-red">d’Expertise</span>
+</h2>
         </div>
 
         {/* Unique Card Container */}

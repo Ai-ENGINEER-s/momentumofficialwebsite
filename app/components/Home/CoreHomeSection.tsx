@@ -20,13 +20,12 @@ export default function CoreHomeSection() {
           <div className="relative h-[520px] rounded-[3rem] overflow-hidden group">
 
             <Image
-              src="https://images.unsplash.com/photo-1551434678-e076c223a692"
+              src="/sections-images/se.png"
               alt="Digital transformation"
               fill
               className="object-cover group-hover:scale-105 transition duration-700"
             />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-momentum-blue/80 via-momentum-blue/50 to-transparent"/>
 
           </div>
 

@@ -95,7 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navbar />
 
           {/* Contenu de chaque page */}
-          <main className="flex-grow ">
+          <main className="flex-grow pt-9">
             {children}
           </main>
 

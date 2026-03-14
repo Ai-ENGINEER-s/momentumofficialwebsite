@@ -1,10 +1,8 @@
 import { HeroSection } from "./components/Home/Hero";
-import { ExpertiseSection } from "./components/Home/ExpertiseSection"; // Utilisation de la section uniformisée
-import { CommunicationSection } from "./components/Home/CommunicationSection";
-import { EGovernmentSuite } from "./components/Home/EGovernmentSuite";
+
 import CoreHomeSection from "./components/Home/CoreHomeSection";
 import ValuesSection from "./components/Home/ValuesSection";
-import NosEngagements from "./components/service/Engagement";
+
 import NosDomaines from "./components/service/NosDomaines";
 import FooterService from "./components/service/FooterService";
 export default function Home() {

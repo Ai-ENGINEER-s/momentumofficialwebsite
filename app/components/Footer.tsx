@@ -7,11 +7,14 @@ import {
   Facebook,
   Youtube,
   Twitter,
+  X,
+  Linkedin,
   HelpCircle,
   Globe,
   ChevronDown,
   Plus,
   Minus,
+  LinkedinIcon,
 } from "lucide-react";
 
 const Footer = () => {
@@ -81,7 +84,7 @@ const Footer = () => {
                 aria-label="Twitter"
                 className="w-10 h-10 flex items-center justify-center rounded-full bg-white border border-gray-200 text-gray-500 hover:text-white hover:bg-[#1DA1F2] hover:border-[#1DA1F2] transition-all duration-300 shadow-sm"
               >
-                <Twitter size={18} strokeWidth={1.8} />
+                <X size={18} strokeWidth={1.8} />
               </Link>
 
               <Link
@@ -89,7 +92,7 @@ const Footer = () => {
                 aria-label="Youtube"
                 className="w-10 h-10 flex items-center justify-center rounded-full bg-white border border-gray-200 text-gray-500 hover:text-white hover:bg-[#FF0000] hover:border-[#FF0000] transition-all duration-300 shadow-sm"
               >
-                <Youtube size={18} strokeWidth={1.8} />
+                <LinkedinIcon size={18} strokeWidth={1.8} />
               </Link>
 
               <Link

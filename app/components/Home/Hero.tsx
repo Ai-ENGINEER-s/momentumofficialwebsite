@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-export function HeroSection() {
+export default  function HeroSection() {
   return (
     <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 px-4 sm:px-6 bg-white overflow-hidden">
       

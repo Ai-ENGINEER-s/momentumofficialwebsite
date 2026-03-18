@@ -3,7 +3,7 @@
 import { Check, ShoppingCart, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-export function CommunicationSection() {
+export default function CommunicationSection() {
   return (
     <section className="py-16 md:py-24 lg:py-32 px-4 sm:px-6 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">

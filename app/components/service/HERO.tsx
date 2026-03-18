@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
-export function HeroSection() {
+export default function HeroSection() {
   return (
     <section className="relative py-12 md:py-24 lg:py-32 px-4 sm:px-6 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">

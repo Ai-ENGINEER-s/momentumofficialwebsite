@@ -22,7 +22,7 @@ const govModules = [
   }
 ];
 
-export function EGovernmentSuite() {
+export default function EGovernmentSuite() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const nextModule = () => {

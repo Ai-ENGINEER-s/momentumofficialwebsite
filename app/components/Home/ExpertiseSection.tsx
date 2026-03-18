@@ -43,7 +43,7 @@ const poles = [
   }
 ];
 
-export function ExpertiseSection() {
+export default  function ExpertiseSection() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0); // 1 pour droite, -1 pour gauche
 

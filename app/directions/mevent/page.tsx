@@ -2,8 +2,9 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Calendar, Users, Megaphone, Star, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Users, Megaphone, Star, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const stats = [
   { label: "Événements organisés", value: "50+" },
@@ -49,16 +50,18 @@ export default function MEventPage() {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-3xl"
           >
- 
             <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6">
               Connecter les leaders, <span className="text-momentum-red">propulser</span> l'innovation.
             </h1>
             <p className="text-xl text-slate-200 mb-10 leading-relaxed">
               Nous créons des expériences mémorables et des stratégies marketing d'impact pour les acteurs majeurs de l'économie numérique.
             </p>
-            <button className="bg-white text-momentum-blue px-8 py-4 rounded-full font-black flex items-center gap-3 hover:bg-momentum-red hover:text-white transition-all">
+            <Link 
+              href="/contact"
+              className="inline-flex bg-white text-momentum-blue px-8 py-4 rounded-full font-black items-center gap-3 hover:bg-momentum-red hover:text-white transition-all shadow-lg"
+            >
               Discuter de votre projet <ArrowRight className="w-5 h-5" />
-            </button>
+            </Link>
           </motion.div>
         </div>
       </section>
@@ -97,9 +100,12 @@ export default function MEventPage() {
                 </div>
                 <h3 className="text-xl font-black text-momentum-blue mb-4">{service.title}</h3>
                 <p className="text-slate-500 leading-relaxed mb-6">{service.desc}</p>
-                <div className="flex items-center text-sm font-bold text-momentum-red">
+                <Link 
+                  href="/contact"
+                  className="flex items-center text-sm font-bold text-momentum-red hover:underline"
+                >
                   En savoir plus <ArrowRight className="w-4 h-4 ml-2" />
-                </div>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -113,7 +119,7 @@ export default function MEventPage() {
             <div className="lg:w-1/2 relative">
               <div className="relative bg-slate-50 z-10 rounded-[40px] overflow-hidden shadow-2xl">
                 <Image 
-                src={'/sections-images/momentum-mevent.png'}
+                  src={'/sections-images/momentum-mevent.png'}
                   alt="Concert/Event" 
                   width={600} 
                   height={400} 
@@ -149,12 +155,18 @@ export default function MEventPage() {
               "L'excellence n'est pas un acte, c'est une habitude." — Momentum MEvent met cette habitude au service de votre marque.
             </p>
             <div className="flex flex-col md:flex-row justify-center gap-4">
-              <button className="bg-momentum-blue text-white px-10 py-4 rounded-full font-black hover:bg-momentum-red transition-all">
+              <Link 
+                href="/contact"
+                className="inline-block bg-momentum-blue text-white px-10 py-4 rounded-full font-black hover:bg-momentum-red transition-all shadow-md"
+              >
                 Nous contacter
-              </button>
-              <button className="border-2 border-momentum-blue text-momentum-blue px-10 py-4 rounded-full font-black hover:bg-momentum-blue hover:text-white transition-all">
+              </Link>
+              <Link 
+                href="/contact"
+                className="inline-block border-2 border-momentum-blue text-momentum-blue px-10 py-4 rounded-full font-black hover:bg-momentum-blue hover:text-white transition-all"
+              >
                 Voir nos réalisations
-              </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -17,12 +17,7 @@ export function HeroSection() {
             créons un impact durable à travers l'innovation et l'excellence.
           </p>
           
-          <div className="flex justify-center md:justify-start">
-            <button className="bg-momentum-blue hover:opacity-90 text-white px-12 py-5 rounded-full font-bold transition-all flex items-center gap-3 text-xl shadow-lg group">
-              Continuer
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
+       
         </div>
 
         <div className="flex-1 relative flex justify-center items-center">
@@ -31,7 +26,7 @@ export function HeroSection() {
             {/* Mockup Smartphone */}
             <div className="relative z-20 w-72 h-[580px] mx-auto md:ml-0 drop-shadow-2xl">
               <Image 
-                src="/sections-images/1.png" 
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1000&auto=format&fit=crop" 
                 alt="Momentum App"
                 fill
                 className="object-cover rounded-[3rem] border-[8px] border-momentum-blue"

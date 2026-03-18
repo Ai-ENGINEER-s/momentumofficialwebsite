@@ -10,6 +10,7 @@ import {
   X,
   Linkedin,
   HelpCircle,
+  Instagram,
   Globe,
   ChevronDown,
   Plus,
@@ -37,13 +38,15 @@ const Footer = () => {
     },
     {
       title: "Nos Directions",
-      links: [
-        { name: "Momentum Core", href: "/directions/core" },
-        { name: "Momentum Energy", href: "/directions/energy" },
-        { name: "Momentum Academy", href: "/directions/academy" },
-        { name: "Momentum Health", href: "/directions/health" },
-        { name: "Momentum Nexus", href: "/directions/nexus" },
-      ],
+    links: [
+  { name: "Momentum Core", href: "/directions/core" },
+  { name: "Momentum Energy", href: "/directions/energy" },
+  { name: "Momentum Academy", href: "/directions/academy" },
+  { name: "Momentum Health", href: "/directions/health" },
+  { name: "Momentum Nexus", href: "/directions/nexus" },
+  { name: "Momentum Earth", href: "/directions/earth" },
+  { name: "Momentum MEvent", href: "/directions/mevent" },
+],
     },
     {
       title: "Académie & Impact",
@@ -101,6 +104,13 @@ const Footer = () => {
                 className="w-10 h-10 flex items-center justify-center rounded-full bg-white border border-gray-200 text-gray-500 hover:text-white hover:bg-[#1877F2] hover:border-[#1877F2] transition-all duration-300 shadow-sm"
               >
                 <Facebook size={18} strokeWidth={1.8} />
+              </Link>
+              <Link
+                href="#"
+                aria-label="Instagram"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white border border-gray-200 text-gray-500 hover:text-white hover:bg-[#1877F2] hover:border-[#1877F2] transition-all duration-300 shadow-sm"
+              >
+                <Instagram size={18} strokeWidth={1.8} />
               </Link>
 
             </div>
@@ -173,7 +183,7 @@ const Footer = () => {
 
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-[12px] text-gray-500 font-medium">
 
-              <Link href="/about" className="hover:text-momentum-blue">
+              <Link href="/a-propos" className="hover:text-momentum-blue">
                 À propos
               </Link>
 
@@ -219,9 +229,7 @@ const Footer = () => {
         {/* COPYRIGHT */}
         <div className="mt-10 border-t border-gray-100 pt-6 text-center xl:text-left">
           <p className="text-[11px] text-gray-400 leading-relaxed">
-            © {new Date().getFullYear()} Momentum Group Holdings. Plateforme
-            officielle agréée par les services de régulation numérique.
-            <br className="hidden md:block" />
+            © {new Date().getFullYear()} Momentum Group Holdings. 
             Tous droits réservés.
           </p>
         </div>

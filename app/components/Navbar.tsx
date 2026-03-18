@@ -11,21 +11,19 @@ const Navbar = () => {
   const [activeMobileSubmenu, setActiveMobileSubmenu] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Gestion du scroll pour le look pro
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Empêcher le scroll quand le menu mobile est ouvert
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
   }, [isMobileMenuOpen]);
 
   const directions = [
     {
-      category: "Innovation & Tech",
+      category: "INNOVATION &  TECHNOLOGIE",
       items: [
         { title: "Momentum Core", desc: "Intelligence Artificielle & Ingénierie", href: "/directions/core" },
         { title: "Momentum Nexus", desc: "Incubateur de startups", href: "/directions/nexus" },
@@ -40,7 +38,7 @@ const Navbar = () => {
       ]
     },
     {
-      category: "Croissance & Formation",
+      category: "Activités & Formation",
       items: [
         { title: "Momentum Academy", desc: "Bootcamps IA & Data", href: "/directions/academy" },
         { title: "Momentum MEvent", desc: "Marketing stratégique", href: "/directions/mevent" },
@@ -48,11 +46,15 @@ const Navbar = () => {
     }
   ];
 
+  // Fonction utilitaire pour générer les slugs (URL)
+  const formatSlug = (text: string) => 
+    text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, '-');
+
   return (
     <header className={`fixed top-0 w-full z-[100] transition-all duration-300 font-sans ${
       isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm h-16' : 'bg-white h-20 border-b border-gray-100'
     }`}>
-      <nav className="max-w-[1400px] mx-auto px-4 lg:px-10 h-full flex items-center justify-between" aria-label="Menu principal">
+      <nav className="max-w-[1400px] mx-auto px-4 lg:px-10 h-full flex items-center justify-between">
         
         {/* LOGO */}
         <div className="flex-shrink-0">
@@ -68,22 +70,12 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* NAVIGATION DESKTOP (Optimisée) */}
+        {/* NAVIGATION DESKTOP */}
         <div className="hidden xl:flex flex-1 justify-center items-center space-x-8">
-          {['À propos', 'Services'].map((item) => (
-            <Link 
-              key={item}
-             href={`/${item
-  .normalize("NFD")                // Décompose les caractères accentués
-  .replace(/[\u0300-\u036f]/g, "") // Supprime les accents
-  .toLowerCase()
-  .replace(/\s+/g, '-')            // Remplace les espaces par des tirets
-}`}
-              className="text-sm font-semibold text-gray-700 hover:text-momentum-blue transition-colors"
-            >
-              {item}
-            </Link>
-          ))}
+          
+          <Link href="/services" className="text-sm font-semibold text-gray-700 hover:text-momentum-blue transition-colors">
+          Nos Services
+          </Link>
           
           {/* MEGA MENU TRIGGER */}
           <div 
@@ -91,19 +83,13 @@ const Navbar = () => {
             onMouseEnter={() => setOpenDropdown('directions')}
             onMouseLeave={() => setOpenDropdown(null)}
           >
-            <button 
-              aria-expanded={openDropdown === 'directions'}
-              className={`flex items-center text-sm font-semibold transition-colors ${openDropdown === 'directions' ? 'text-momentum-blue' : 'text-gray-700 hover:text-momentum-blue'}`}
-            >
+            <button className={`flex items-center text-sm font-semibold transition-colors ${openDropdown === 'directions' ? 'text-momentum-blue' : 'text-gray-700 hover:text-momentum-blue'}`}>
               Nos Directions
               <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-300 ${openDropdown === 'directions' ? 'rotate-180 text-momentum-red' : ''}`} />
             </button>
 
             {/* MEGA MENU CONTENT */}
-            <div className={`
-              absolute top-full left-1/2 -translate-x-1/2 w-[900px] transition-all duration-300
-              ${openDropdown === 'directions' ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'}
-            `}>
+            <div className={`absolute top-full left-1/2 -translate-x-1/2 w-[900px] transition-all duration-300 ${openDropdown === 'directions' ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'}`}>
               <div className="bg-white shadow-2xl border border-gray-100 rounded-b-2xl p-8">
                 <div className="grid grid-cols-3 gap-10">
                   {directions.map((col, idx) => (
@@ -127,8 +113,12 @@ const Navbar = () => {
             </div>
           </div>
 
-          <Link href="/academy" className="text-sm font-semibold text-gray-700 hover:text-momentum-blue transition-colors">Academy</Link>
-          <Link href="/impact" className="text-sm font-semibold text-gray-700 hover:text-momentum-blue transition-colors">Impact</Link>
+          {/* <Link href="/impact" className="text-sm font-semibold text-gray-700 hover:text-momentum-blue transition-colors">Impact</Link> */}
+          
+          {/* À PROPOS EN DERNIÈRE POSITION */}
+          <Link href="/a-propos" className="text-sm font-semibold text-gray-700 hover:text-momentum-blue transition-colors">
+            À propos
+          </Link>
         </div>
 
         {/* ACTIONS & MOBILE TOGGLE */}
@@ -142,7 +132,6 @@ const Navbar = () => {
 
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             className="xl:hidden p-2 text-momentum-blue hover:bg-gray-100 rounded-lg transition-colors"
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -150,30 +139,19 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* MOBILE MENU (Ton design original préservé) */}
-      <div className={`
-        fixed inset-0 top-20 bg-white z-[90] xl:hidden transition-transform duration-300 ease-in-out
-        ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
-      `}>
+      {/* MOBILE MENU */}
+      <div className={`fixed inset-0 top-20 bg-white z-[90] xl:hidden transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="flex flex-col h-full overflow-y-auto p-6 pb-24">
           <div className="space-y-1">
-            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-between py-4 border-b border-gray-50 text-lg font-bold text-momentum-blue">
-              À propos <ArrowRight size={18} />
-            </Link>
             <Link href="/services" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-between py-4 border-b border-gray-50 text-lg font-bold text-momentum-blue">
-              Services <ArrowRight size={18} />
+          Nos Services <ArrowRight size={18} />
             </Link>
             
-            {/* Accordion Mobile original */}
             <div className="border-b border-gray-50">
-              <button 
-                onClick={() => setActiveMobileSubmenu(!activeMobileSubmenu)}
-                className="w-full flex items-center justify-between py-4 text-lg font-bold text-momentum-blue"
-              >
+              <button onClick={() => setActiveMobileSubmenu(!activeMobileSubmenu)} className="w-full flex items-center justify-between py-4 text-lg font-bold text-momentum-blue">
                 Nos Directions
                 <ChevronDown className={`transition-transform ${activeMobileSubmenu ? 'rotate-180' : ''}`} />
               </button>
-              
               <div className={`${activeMobileSubmenu ? 'block' : 'hidden'} pb-4 pl-4 space-y-4`}>
                 {directions.map((cat) => (
                   <div key={cat.category} className="pt-2">
@@ -193,14 +171,15 @@ const Navbar = () => {
             <Link href="/academy" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-between py-4 border-b border-gray-50 text-lg font-bold text-momentum-blue">
               Academy <ArrowRight size={18} />
             </Link>
+
+            {/* À PROPOS EN DERNIÈRE POSITION MOBILE */}
+            <Link href="/a-propos" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-between py-4 border-b border-gray-50 text-lg font-bold text-momentum-blue">
+              À propos <ArrowRight size={18} />
+            </Link>
           </div>
 
           <div className="mt-auto pt-10">
-            <Link 
-              href="/contact" 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center justify-center w-full bg-momentum-blue text-white py-4 rounded-xl font-bold text-lg"
-            >
+            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-center w-full bg-momentum-blue text-white py-4 rounded-xl font-bold text-lg">
               Parler à un conseiller
             </Link>
           </div>

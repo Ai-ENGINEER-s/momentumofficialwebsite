@@ -4,6 +4,13 @@ import { ArrowRight, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 
 const FooterService = () => {
+
+const handleCTAClick = () => {
+  // Logique pour démarrer un projet (ex: redirection vers un formulaire de contact)
+  window.location.href = "/contact";
+}
+
+
   return (
     <section className="relative py-28 bg-gradient-to-b from-white via-slate-50 to-white overflow-hidden">
 
@@ -50,14 +57,15 @@ const FooterService = () => {
         >
 
           {/* CTA principal */}
-          <motion.button
+          {/* <motion.button
+          onClick={handleCTAClick}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
             className="flex items-center gap-3 bg-momentum-blue text-white px-10 py-4 rounded-xl font-semibold shadow-lg hover:bg-momentum-red transition-all"
           >
             Démarrer un projet
             <ArrowRight size={20}/>
-          </motion.button>
+          </motion.button> */}
 
     
 

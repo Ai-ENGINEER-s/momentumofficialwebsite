@@ -1,133 +1,168 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Target, Eye, ShieldCheck, Globe, Users2, Building2 } from 'lucide-react';
+import { Target, Eye, ShieldCheck, Globe, Building2, Briefcase, Star, Handshake, ChevronRight } from 'lucide-react';
+
+// --- COULEURS EXTRAITES DE VOTRE IMAGE ---
+const COLORS = {
+  blue: "#133D58", // Profond et institutionnel
+  red: "#811625",  // Accent
+  gray: "#5f6368", // Fond de section
+  light: "#FFFFFF" // Pur
+};
 
 export default function AboutPage() {
+const stats = [
+    { 
+      value: "100%", 
+      label: "Souveraineté Numérique", 
+      icon: <ShieldCheck className="w-6 h-6" style={{ color: COLORS.red }} />,
+      detail: "Données locales"
+    },
+    { 
+      value: "Agile", 
+      label: "Déploiement Rapide", 
+      icon: <Target className="w-6 h-6" style={{ color: COLORS.red }} />,
+      detail: "Focus Résultats"
+    },
+    { 
+   value: "Elite", 
+      label: "Partenariat Stratégique",
+      icon: <Building2 className="w-6 h-6" style={{ color: COLORS.red }} />,
+      detail: "Vision 2030"
+    },
+  ];
+
   const values = [
     {
       title: "Souveraineté Numérique",
-      desc: "Garantir que les données et les infrastructures critiques de la nation restent sous contrôle national.",
-      icon: <ShieldCheck className="w-8 h-8 text-momentum-red" />,
+      desc: "Protéger et contrôler nos infrastructures critiques pour garantir l'indépendance de la nation.",
+      icon: <ShieldCheck className="w-8 h-8" />,
     },
     {
       title: "Innovation Inclusive",
-      desc: "Développer des technologies qui ne laissent personne de côté, des centres urbains aux zones rurales.",
-      icon: <Globe className="w-8 h-8 text-momentum-red" />,
+      desc: "Créer des technologies intelligentes qui bénéficient à tous les citoyens, sans exception.",
+      icon: <Globe className="w-8 h-8" />,
     },
     {
       title: "Excellence Panafricaine",
-      desc: "Porter l'expertise congolaise au-delà des frontières avec des standards de qualité internationaux.",
-      icon: <Target className="w-8 h-8 text-momentum-red" />,
+      desc: "Définir les nouveaux standards de qualité internationaux avec une expertise locale.",
+      icon: <Star className="w-8 h-8" />,
     },
   ];
 
   return (
-    <main className="min-h-screen">
-      {/* HERO SECTION */}
-      <section className="bg-slate-50 py-20 lg:py-32 border-b border-gray-100">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+    <main className="min-h-screen selection:text-white" style={{ background: COLORS.light, color: COLORS.blue, '--selection-bg': COLORS.red } as React.CSSProperties}>
+      
+      {/* --- HERO SECTION (ÉPURÉE) --- */}
+      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden border-b border-slate-100">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full blur-[120px]" style={{ background: `${COLORS.blue}10` }} />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] rounded-full blur-[100px]" style={{ background: `${COLORS.red}10` }} />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl">
-            <h1 className="text-5xl lg:text-7xl font-black text-momentum-blue leading-[1.1] mb-8">
+            <h1 className="text-6xl lg:text-8xl font-medium tracking-tighter leading-[0.9] mb-10" style={{ color: COLORS.blue }}>
               L'architecte de la <br />
-              <span className="text-momentum-red">renaissance numérique</span> <br />
-              en RD Congo.
+              <span style={{ color: COLORS.red }} className="font-lightitalic">renaissance</span> numérique.
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed font-medium">
-              Momentum Group Holdings est une structure stratégique dédiée à l'accélération technologique, 
-              à la modernisation de l'État et à l'autonomisation des citoyens par le savoir.
+            <p className="text-xl lg:text-2xl leading-relaxed max-w-2xl font-light opacity-90">
+              Momentum Group Holdings est le partenaire stratégique dédié à l'accélération technologique, à la modernisation et à la souveraineté numérique de la RD Congo.
             </p>
           </div>
         </div>
       </section>
 
-      {/* VISION & MISSION */}
-      <section className="max-w-[1400px] mx-auto px-6 lg:px-10 py-24">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-32 items-start">
-          <div className="space-y-12">
-            <div className="group">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="bg-momentum-blue p-3 rounded-2xl text-white">
-                  <Eye size={28} />
-                </div>
-                <h2 className="text-3xl font-black text-momentum-blue uppercase tracking-tight">Notre Vision</h2>
+      {/* --- STATS SECTION (LIGNES ÉPURÉES) --- */}
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <div className="grid md:grid-cols-3 gap-12 border border-slate-100 p-12 rounded-xl">
+          {stats.map((stat, i) => (
+            <div key={i} className="flex items-center gap-6">
+              <div className="bg-slate-50 p-4 rounded-full">{stat.icon}</div>
+              <div>
+                <div className="text-4xl font-bold tracking-tight" style={{ color: COLORS.blue }}>{stat.value}</div>
+                <div className="text-sm font-medium uppercase tracking-wider opacity-70">{stat.label}</div>
               </div>
-              <p className="text-lg text-gray-600 leading-relaxed pl-2 border-l-4 border-momentum-red">
-                Devenir le moteur technologique de l'Afrique Centrale d'ici 2030, en transformant chaque défi 
-                sociétal en une opportunité numérique durable. Nous voyons une RDC connectée, 
-                autosuffisante en énergie et leader en Intelligence Artificielle.
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* --- SECTION VISION & MISSION (GRIS FONCÉ) --- */}
+      <section className="py-32 text-white" style={{ background: COLORS.gray }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-20">
+            <div className="border-l-4 p-8 pl-12" style={{ borderColor: COLORS.red }}>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-3 rounded-lg" style={{ background: COLORS.blue }}>
+                  <Eye size={24} className="text-white" />
+                </div>
+                <h2 className="text-3xl font-bold tracking-tight uppercase">Notre Vision 2030</h2>
+              </div>
+              <p className="text-lg leading-relaxed font-light opacity-80">
+                Devenir le moteur technologique de l'Afrique Centrale, transformant chaque défi en une opportunité durable. Nous œuvrons pour une RDC connectée, autosuffisante et leader.
               </p>
             </div>
 
-            <div className="group">
+            <div className="border-l-4 p-8 pl-12" style={{ borderColor: COLORS.blue }}>
               <div className="flex items-center gap-4 mb-6">
-                <div className="bg-momentum-blue p-3 rounded-2xl text-white">
-                  <Target size={28} />
+                <div className="p-3 rounded-lg" style={{ background: COLORS.red }}>
+                  <Target size={24} className="text-white" />
                 </div>
-                <h2 className="text-3xl font-black text-momentum-blue uppercase tracking-tight">Notre Mission</h2>
+                <h2 className="text-3xl font-bold tracking-tight uppercase">Notre Mission</h2>
               </div>
-              <p className="text-lg text-gray-600 leading-relaxed pl-2 border-l-4 border-momentum-red">
-                Concevoir, déployer et maintenir les infrastructures numériques et énergétiques critiques. 
-                À travers nos différentes directions, nous digitalisons l'administration publique et 
-                formons la main-d'œuvre de demain.
+              <p className="text-lg leading-relaxed font-light opacity-80">
+                Concevoir et maintenir les infrastructures critiques, digitaliser l'administration publique et former la main-d'œuvre de demain par la transmission du savoir.
               </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-6">
-            <div className="bg-momentum-blue aspect-square rounded-[3rem] p-10 flex flex-col justify-end text-white relative overflow-hidden group">
-              <Building2 className="absolute top-10 right-10 opacity-20 group-hover:scale-125 transition-transform duration-500" size={80} />
-              <div className="text-4xl font-black">12+</div>
-              <div className="text-sm font-bold uppercase tracking-widest opacity-80">Années d'expertise</div>
-            </div>
-            <div className="bg-slate-100 aspect-square rounded-[3rem] p-10 flex flex-col justify-end text-momentum-blue relative overflow-hidden group">
-              <Users2 className="absolute top-10 right-10 opacity-20 group-hover:scale-125 transition-transform duration-500" size={80} />
-              <div className="text-4xl font-black">250+</div>
-              <div className="text-sm font-bold uppercase tracking-widest opacity-80">Experts Nationaux</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* NOS VALEURS */}
-      <section className="bg-momentum-blue py-24 text-white">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl lg:text-5xl font-black mb-4 italic">Nos Valeurs Fondamentales</h2>
-            <div className="h-2 w-24 bg-momentum-red mx-auto"></div>
-          </div>
+      {/* --- SECTION VALEURS (ÉLÉGANTE ET MODULAIRE) --- */}
+      <section className="max-w-7xl mx-auto px-6 py-32">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl lg:text-5xl font-medium tracking-tighter" style={{ color: COLORS.blue }}>Piliers Fondamentaux</h2>
+          <div className="h-1 w-20 mx-auto mt-4" style={{ background: COLORS.red }}></div>
+        </div>
 
-          <div className="grid md:grid-cols-3 gap-12">
-            {values.map((v, i) => (
-              <div key={i} className="bg-white/5 backdrop-blur-sm p-10 rounded-[2.5rem] border border-white/10 hover:bg-white hover:text-momentum-blue transition-all duration-300 group">
-                <div className="mb-6 group-hover:scale-110 transition-transform">{v.icon}</div>
-                <h3 className="text-2xl font-bold mb-4">{v.title}</h3>
-                <p className="opacity-80 group-hover:opacity-100 leading-relaxed">
-                  {v.desc}
-                </p>
+        <div className="grid md:grid-cols-3 gap-px bg-slate-100 border border-slate-100 overflow-hidden rounded-xl">
+          {values.map((v, i) => (
+            <div key={i} className="bg-white p-12 hover:bg-slate-50 transition-colors duration-300">
+              <div className="mb-8" style={{ color: COLORS.blue }}>
+                {v.icon}
               </div>
-            ))}
-          </div>
+              <h3 className="text-2xl font-bold mb-4 tracking-tight" style={{ color: COLORS.blue }}>{v.title}</h3>
+              <p className="text-slate-600 leading-relaxed font-lightitalic opacity-90">
+                "{v.desc}"
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* CALL TO ACTION */}
-      <section className="py-24 text-center">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-4xl font-black text-momentum-blue mb-8">
-            Participez à la construction de l'avenir.
+      {/* --- CTA FINAL (ULTRA PRO) --- */}
+      <section className="py-40 text-white" style={{ background: COLORS.blue }}>
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <ChevronRight size={60} className="mx-auto mb-10 opacity-30" />
+          <h2 className="text-5xl lg:text-7xl font-medium tracking-tighter mb-10">
+            Ensemble, construisons <br />l'avenir souverain.
           </h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/careers" 
-              className="bg-momentum-red text-white px-10 py-4 rounded-full font-bold shadow-lg shadow-momentum-red/20 hover:scale-105 transition-transform"
-            >
-              Rejoindre l'équipe
-            </Link>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link 
               href="/contact" 
-              className="border-2 border-momentum-blue text-momentum-blue px-10 py-4 rounded-full font-bold hover:bg-momentum-blue hover:text-white transition-all"
+              className="bg-white text-blue px-12 py-5 rounded-full font-bold text-lg hover:bg-slate-100 transition-all w-full sm:w-auto flex items-center gap-3 justify-center"
+              style={{ color: COLORS.blue }}
             >
+              <Handshake size={20}/>
               Devenir partenaire
+            </Link>
+            <Link 
+              href="/directions" 
+              className="font-bold text-lg flex items-center gap-2 group border-b-2 border-transparent hover:border-white transition-all"
+            >
+              Découvrir nos pôles d'expertise
+              <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </div>

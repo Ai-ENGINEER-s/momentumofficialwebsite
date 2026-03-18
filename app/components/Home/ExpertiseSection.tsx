@@ -4,6 +4,12 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+
+
+
+
+
+
 const poles = [
   {
     id: 'core',
@@ -48,7 +54,8 @@ export function ExpertiseSection() {
 
   // Auto-slide toutes les 6 secondes
   useEffect(() => {
-    const timer = setInterval(() => {
+    const timer = setInterval(() => 
+      {
       nextStep();
     }, 6000);
     return () => clearInterval(timer);

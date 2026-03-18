@@ -76,7 +76,7 @@ const Hero = () => {
             className="absolute bottom-10 left-0 w-[60%] h-[300px] rounded-[2rem] border-[12px] border-white overflow-hidden shadow-2xl z-30"
           >
             <Image 
-              src="/sections-images/momentum-health-.png" 
+              src="/sections-images/se.png" 
               alt="Momentum Health" 
               fill 
               className="object-cover"

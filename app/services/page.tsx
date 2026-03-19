@@ -7,8 +7,7 @@ import {
   Cpu, Zap, Shield, BarChart3, Activity, 
   Globe, Rocket, ArrowRight, Check 
 } from 'lucide-react';
-import Hero from '../components/service/HERO';
-import NosValeurs from '../components/service/NosValeurs';
+import HeroSection from '../components/service/HERO';
 import NosDomaines from '../components/service/NosDomaines';
 import NosEngagements from '../components/service/Engagement';
 import FooterService from '../components/service/FooterService';
@@ -18,7 +17,7 @@ export default function ServicesPage() {
   return (
     <main className="bg-[#FCFCFD] text-slate-900 font-sans">
       
-    <Hero />
+    <HeroSection />
 
       {/* SECTION 2: NOS VALEURS (IMPACT) - L'HARMONIE PAR LA GRILLE */}
      {/* <NosValeurs /> */}

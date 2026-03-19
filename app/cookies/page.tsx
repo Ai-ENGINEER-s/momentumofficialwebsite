@@ -7,7 +7,7 @@ import { Cookie, Settings2, Info } from 'lucide-react';
 export default function CookiesPage() {
   return (
     <main className="bg-[#FCFCFD] min-h-screen pt-32 pb-24 font-sans">
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-6 ml-10">
         <div className="bg-white rounded-[2.5rem] border border-slate-100 shadow-xl overflow-hidden">
           <div className="bg-momentum-blue p-12 text-white text-center">
             <Cookie size={48} className="mx-auto mb-6 text-momentum-red" />

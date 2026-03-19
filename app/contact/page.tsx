@@ -80,8 +80,8 @@ export default function ContactPage() {
                       <MapPin size={20} />
                     </div>
                     <div>
-                      <p className="font-bold text-momentum-blue">Kinshasa, RDC</p>
-                      <p className="text-sm text-slate-500">Boulevard du 30 Juin, Gombe</p>
+                      <p className="font-bold text-momentum-blue">RD Congo</p>
+                      <p className="text-sm text-slate-500">Kinshasa</p>
                     </div>
                   </div>
 
@@ -90,7 +90,7 @@ export default function ContactPage() {
                       <Mail size={20} />
                     </div>
                     <div>
-                      <p className="font-bold text-momentum-blue">Email Général</p>
+                      <p className="font-bold text-momentum-blue">   Adresse Mail </p>
                       <p className="text-sm text-slate-500">contact@mgh-drc.com</p>
                     </div>
                   </div>
@@ -102,7 +102,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="font-bold text-momentum-blue">Téléphone</p>
-                      <p className="text-sm text-slate-500">+243(0)802122222</p>
+                      <p className="text-sm text-slate-500">+243 802 122 222</p>
                     </div>
                   </div>
                 </div>
@@ -110,7 +110,7 @@ export default function ContactPage() {
 
               {/* RÉSEAUX SOCIAUX */}
               <div>
-                <h3 className="text-sm font-black text-momentum-blue uppercase tracking-widest mb-6 border-b border-slate-200 pb-2">Suivre Momentum</h3>
+                <h3 className="text-sm font-black text-momentum-blue uppercase tracking-widest mb-6 border-b border-slate-200 pb-2">Nos Réseaux Sociaux</h3>
                 <div className="flex gap-4">
                   {socialLinks.map((social, i) => (
                     <a 

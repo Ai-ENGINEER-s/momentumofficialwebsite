@@ -77,7 +77,7 @@ const Footer = () => {
           <div className="flex items-center gap-6">
 
             <span className="text-sm text-momentum-blue font-bold uppercase tracking-wider">
-              Suivez Momentum
+              Suivez-nous sur 
             </span>
 
             <div className="flex items-center gap-3">

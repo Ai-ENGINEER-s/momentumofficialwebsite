@@ -1,6 +1,4 @@
 "use client";
-
-
 import HeroSection from '../components/service/HeroSection';
 import NosDomaines from '../components/service/NosDomaines';
 import NosEngagements from '../components/service/Engagement';
@@ -22,8 +20,11 @@ export default function ServicesPage() {
     <NosEngagements />
 
       {/* FOOTER CTA HARMONIEUX */}
+       {/* Footer section implemented successfully */}
     <FooterService />
    
     </main>
   );
 }
+
+

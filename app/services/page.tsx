@@ -1,13 +1,7 @@
 "use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { 
-  Cpu, Zap, Shield, BarChart3, Activity, 
-  Globe, Rocket, ArrowRight, Check 
-} from 'lucide-react';
-import HeroSection from '../components/service/HERO';
+
+import HeroSection from '../components/service/HeroSection';
 import NosDomaines from '../components/service/NosDomaines';
 import NosEngagements from '../components/service/Engagement';
 import FooterService from '../components/service/FooterService';

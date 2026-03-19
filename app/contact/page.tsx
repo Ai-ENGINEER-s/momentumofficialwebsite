@@ -116,7 +116,7 @@ export default function ContactPage() {
                 <div className="space-y-6">
                   <div className="flex gap-4">
                     <div className="p-3 bg-white shadow-sm border border-slate-100 rounded-xl text-momentum-red h-fit"><MapPin size={20} /></div>
-                    <div><p className="font-bold text-momentum-blue uppercase text-xs tracking-tighter">RD Congo</p><p className="text-sm text-slate-500">Kinshasa, Gombe</p></div>
+                    <div><p className="font-bold text-momentum-blue uppercase text-xs tracking-tighter">RD Congo</p><p className="text-sm text-slate-500">Kinshasa</p></div>
                   </div>
                   <div className="flex gap-4">
                     <div className="p-3 bg-white shadow-sm border border-slate-100 rounded-xl text-momentum-red h-fit"><Phone size={20} /></div>

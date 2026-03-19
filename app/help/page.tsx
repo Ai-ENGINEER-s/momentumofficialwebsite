@@ -18,7 +18,7 @@
                     </div>
                     <div>
                         <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
-                        <textarea id="message" rows="4" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-momentum-blue focus:border-momentum-blue" placeholder="Votre message"></textarea>
+                        <textarea id="message" rows={4} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-momentum-blue focus:border-momentum-blue" placeholder="Votre message"></textarea>
                     </div>
                     <button type="submit" className="w-full bg-momentum-blue text-white py-2 rounded-md hover:bg-momentum-red transition-colors">Envoyer</button>
                 </form>

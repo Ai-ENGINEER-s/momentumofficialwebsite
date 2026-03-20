@@ -16,7 +16,8 @@ const XIcon = ({ size = 20 }) => (
 );
 
 export default function ContactPage() {
-  const [activePole, setActivePole] = useState("Momentum Core");
+  // "Head Office" est désormais le pôle par défaut
+  const [activePole, setActivePole] = useState("Head Office");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -27,7 +28,7 @@ export default function ContactPage() {
   const formRef = useRef<HTMLFormElement>(null);
 
   const poles = [
-    "Momentum Core", "Momentum Energy", "Momentum Academy", 
+    "Head Office", "Momentum Core", "Momentum Energy", "Momentum Academy", 
     "Momentum Health", "Momentum Earth", "Momentum Nexus", "Momentum MEvent"
   ];
 
@@ -91,15 +92,15 @@ export default function ContactPage() {
       <section className="bg-white border-b border-slate-100 pt-28 pb-16 text-center">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-center mb-8">
-        
+      
             <div className="flex items-center justify-center gap-3">
               <div className="w-12 h-[2px] bg-momentum-red"></div>
-              <span className="text-momentum-red font-black uppercase tracking-[0.3em] text-xs">Contact Institutionnel</span>
+              <span className="text-momentum-red font-black uppercase tracking-[0.3em] text-[10px]">Contact Institutionnel</span>
               <div className="w-12 h-[2px] bg-momentum-red"></div>
             </div>
           </motion.div>
-          <h1 className="text-5xl md:text-7xl font-black text-momentum-blue leading-tight mb-6 max-w-4xl mx-auto">
-            Bâtissons l'avenir <span className="text-momentum-red">ensemble.</span>
+          <h1 className="text-5xl md:text-7xl font-black text-momentum-blue leading-tight mb-6 max-w-4xl mx-auto tracking-tighter">
+            Bâtissons l'avenir <span className="text-momentum-red italic">ensemble.</span>
           </h1>
         </div>
       </section>
@@ -109,14 +110,14 @@ export default function ContactPage() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="flex flex-col lg:flex-row gap-16">
             
-            {/* GAUCHE : INFOS (AVEC NUMÉRO RÉINTÉGRÉ) */}
+            {/* GAUCHE : INFOS */}
             <div className="lg:w-1/3 space-y-12">
               <div className="space-y-8">
-                <h3 className="text-sm font-black text-momentum-blue uppercase tracking-widest border-b border-slate-200 pb-2">Siège Social</h3>
+                <h3 className="text-xs font-black text-momentum-blue uppercase tracking-widest border-b border-slate-200 pb-2 inline-block">Siège Social</h3>
                 <div className="space-y-6">
                   <div className="flex gap-4">
                     <div className="p-3 bg-white shadow-sm border border-slate-100 rounded-xl text-momentum-red h-fit"><MapPin size={20} /></div>
-                    <div><p className="font-bold text-momentum-blue uppercase text-xs tracking-tighter">RD Congo</p><p className="text-sm text-slate-500">Kinshasa</p></div>
+                    <div><p className="font-bold text-momentum-blue uppercase text-xs tracking-tighter">RD Congo</p><p className="text-sm text-slate-500">Kinshasa, Gombe</p></div>
                   </div>
                   <div className="flex gap-4">
                     <div className="p-3 bg-white shadow-sm border border-slate-100 rounded-xl text-momentum-red h-fit"><Phone size={20} /></div>
@@ -163,7 +164,7 @@ export default function ContactPage() {
 
                       <AnimatePresence>
                         {isDropdownOpen && (
-                          <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="absolute z-50 top-full left-0 w-full mt-2 bg-white border border-slate-100 shadow-xl rounded-xl overflow-hidden p-1">
+                          <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="absolute z-50 top-full left-0 w-full mt-2 bg-white border border-slate-100 shadow-2xl rounded-xl overflow-hidden p-1">
                             {poles.map((pole) => (
                               <button key={pole} type="button" onClick={() => { setActivePole(pole); setIsDropdownOpen(false); }} className={`w-full text-left px-5 py-3 text-sm font-bold transition-all rounded-lg ${activePole === pole ? 'text-white bg-momentum-blue' : 'text-slate-600 hover:bg-slate-50'}`}>
                                 {pole}
@@ -218,8 +219,8 @@ export default function ContactPage() {
                     </div>
                     <div className="space-y-2">
                       <h2 className="text-4xl font-black text-momentum-blue italic uppercase tracking-tighter">Transmission réussie</h2>
-                      <p className="text-slate-500 max-w-sm mx-auto leading-relaxed">
-                        Votre demande a été envoyée à <strong>{activePole}</strong>. Nos équipes reviendront vers vous sous peu.
+                      <p className="text-slate-500 max-w-sm mx-auto leading-relaxed text-sm">
+                        Votre demande a été envoyée à la direction <strong>{activePole}</strong>. Nos équipes reviendront vers vous sous peu.
                       </p>
                     </div>
 
@@ -229,7 +230,7 @@ export default function ContactPage() {
                       onClick={() => setIsSubmitted(false)}
                       className="mt-8 flex items-center justify-center gap-2 mx-auto text-[10px] font-black text-momentum-blue uppercase tracking-widest border-b-2 border-momentum-red pb-1 hover:text-momentum-red transition-colors"
                     >
-                      <RefreshCcw size={14} /> Envoyer un autre message
+                      <RefreshCcw size={14} /> Envoyer un nouveau message
                     </motion.button>
                   </motion.div>
                 )}

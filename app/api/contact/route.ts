@@ -46,8 +46,18 @@ export async function POST(request: NextRequest) {
             </div>
 
             <div style="margin-top: 50px; padding-top: 20px; border-top: 2px solid ${MOMENTUM_BLUE};">
-              <img src="${LOGO_URL}" alt="Momentum Logo" style="height: 35px; margin-bottom: 10px;">
-              <p style="margin: 0; font-size: 11px; font-weight: bold; color: ${MOMENTUM_BLUE}; text-transform: uppercase; letter-spacing: 1px;">Momentum Group Holdings</p>
+             <table style="margin-top: 40px; border-collapse: collapse;">
+              <tr>
+                <td style="padding-right: 20px; border-right: 2px solid ${MOMENTUM_RED};">
+                  <img src="${LOGO_URL}" alt="Momentum Logo" style="height: 50px; width: auto; display: block;">
+                </td>
+                <td style="padding-left: 20px;">
+                  <p style="margin: 0; font-size: 12px; color: ${MOMENTUM_RED}; font-weight: bold;">L’excellence au service de vos ambitions.</p>
+                  <p style="margin: 0; font-size: 11px; color: #94a3b8; margin-top: 4px;">Kinshasa, Gombe | RD Congo</p>
+                  <p style="margin: 0; font-size: 11px; color: #94a3b8;"><a href="https://www.momentumgroupholdings.com/" style="color: #94a3b8; text-decoration: none;">www.mgh-drc.com</a></p>
+                </td>
+              </tr>
+            </table>
               <p style="margin: 0; font-size: 10px; color: #94a3b8;">Automated System Notification</p>
             </div>
           </div>
@@ -61,7 +71,7 @@ export async function POST(request: NextRequest) {
     const { error: clientError } = await resend.emails.send({
       from: 'Momentum Group <contact@mgh-drc.com>',
       to: [data.email],
-      subject: "Confirmation de votre demande | Momentum Group",
+      subject: "Confirmation de votre requête | Momentum Group Holdings",
       html: `
         <div style="font-family: 'Segoe UI', Arial, sans-serif; color: #1e293b; line-height: 1.8; padding: 20px;">
           <div style="max-width: 600px; margin: 0 auto;">
@@ -77,10 +87,9 @@ export async function POST(request: NextRequest) {
                   <img src="${LOGO_URL}" alt="Momentum Logo" style="height: 50px; width: auto; display: block;">
                 </td>
                 <td style="padding-left: 20px;">
-                  <p style="margin: 0; font-size: 14px; font-weight: 900; color: ${MOMENTUM_BLUE}; text-transform: uppercase; letter-spacing: 1px;">Momentum Group Holdings</p>
-                  <p style="margin: 0; font-size: 12px; color: ${MOMENTUM_RED}; font-weight: bold;">Direction Institutionnelle</p>
+                  <p style="margin: 0; font-size: 12px; color: ${MOMENTUM_RED}; font-weight: bold;">L’excellence au service de vos ambitions.</p>
                   <p style="margin: 0; font-size: 11px; color: #94a3b8; margin-top: 4px;">Kinshasa, Gombe | RD Congo</p>
-                  <p style="margin: 0; font-size: 11px; color: #94a3b8;"><a href="https://www.mgh-drc.com" style="color: #94a3b8; text-decoration: none;">www.mgh-drc.com</a></p>
+                  <p style="margin: 0; font-size: 11px; color: #94a3b8;"><a href="https://www.momentumgroupholdings.com/" style="color: #94a3b8; text-decoration: none;">www.mgh-drc.com</a></p>
                 </td>
               </tr>
             </table>
